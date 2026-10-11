@@ -202,7 +202,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <div class="wrap">
     <a class="brand" href="#top"><i></i>Formula IUT</a>
     <nav class="links" aria-label="Sections">
-      <a href="#brief">Brief</a><a href="#tasks">Tasks</a><a href="#guide">Study guide</a><a href="#data">MoTeC data</a><a href="#submit">Submit</a>
+      <a href="#glimpse">FSUK finals</a><a href="#brief">Brief</a><a href="#tasks">Tasks</a><a href="#guide">Study guide</a><a href="#data">MoTeC data</a><a href="#submit">Submit</a>
     </nav>
     <a class="btn small" href="#submit">Submit</a>
   </div>
@@ -233,6 +233,55 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </svg>
     <div class="trace-cap">Illustrative speed against distance. Red is the faster lap.</div>
   </div>
+</section>
+
+<section class="glimpse" id="glimpse">
+<style>
+.glimpse{border-top:1px solid var(--line)}
+.glimpse .kicker{font-family:var(--mono);color:var(--red-hi);text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;margin-bottom:14px}
+.glimpse h2{margin-bottom:18px}
+.show{position:relative;margin-top:36px;background:#000;border:1px solid var(--line);aspect-ratio:4/3;max-height:78vh;width:100%;overflow:hidden}
+.show .slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .6s ease}
+.show .slide.on{opacity:1}
+.show img{width:100%;height:100%;object-fit:contain;display:block}
+.show figcaption{position:absolute;left:0;bottom:0;padding:10px 16px;background:rgba(0,0,0,.72);font:800 1.15rem var(--display);text-transform:uppercase;letter-spacing:.04em;border-left:4px solid var(--red)}
+.show .nav-b{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:1.6rem;cursor:pointer;border-radius:2px;z-index:2}
+.show .nav-b:hover{background:var(--red)}
+.show .prev{left:10px}.show .next{right:10px}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
+.dots button{width:28px;height:6px;border:0;background:#444;cursor:pointer;padding:0;transform:skewX(-14deg)}
+.dots button[aria-current="true"]{background:var(--red)}
+.wish{margin-top:40px;padding:28px clamp(18px,3vw,32px);background:var(--panel);border-left:6px solid var(--red)}
+.wish p{margin:0;font-size:1.2rem}
+.wish b{font:800 clamp(1.6rem,3.5vw,2.4rem)/1.05 var(--display);text-transform:uppercase;display:block;margin-bottom:10px}
+@media (prefers-reduced-motion:reduce){.show .slide{transition:none}}
+</style>
+  <div class="wrap">
+    <p class="kicker">FSUK Sim Racing Series 2025&ndash;26 &middot; Finals</p>
+    <h2>A glimpse from<br>Williams F1 HQ</h2>
+    <p class="lede">Last season, Formula IUT took its drivers and race engineers all the way to the FSUK Sim Racing Series finals at Williams F1 headquarters in Grove, UK. We finished P9 in the Engineering Challenge and P9 in Finals B.</p>
+    <div class="show" id="show" aria-roledescription="carousel" aria-label="Photos from the FSUK Sim Racing finals">
+<figure class="slide on" aria-hidden="false"><img src="images/fsuk/1.jpg" alt="Formula IUT member posing beside Ayrton Senna's Williams FW16 in the Williams heritage collection" loading="eager"><figcaption>Williams heritage collection</figcaption></figure>
+<figure class="slide" aria-hidden="true"><img src="images/fsuk/2.jpg" alt="Formula IUT engineer coaching a team-mate on a Playseat sim rig" loading="lazy"><figcaption>Engineer and driver on the sim</figcaption></figure>
+<figure class="slide" aria-hidden="true"><img src="images/fsuk/3.jpg" alt="Formula IUT team selfie at the Atlassian Williams F1 Team sign" loading="lazy"><figcaption>Team Formula IUT at Grove</figcaption></figure>
+<figure class="slide" aria-hidden="true"><img src="images/fsuk/4.jpg" alt="All FSUK Sim Racing finalists gathered around the Williams F1 car at Williams F1 HQ" loading="lazy"><figcaption>Every finalist, one car</figcaption></figure>
+<figure class="slide" aria-hidden="true"><img src="images/fsuk/5.jpg" alt="Driver's view from the sim cockpit during a GT race" loading="lazy"><figcaption>From the cockpit</figcaption></figure>
+<figure class="slide" aria-hidden="true"><img src="images/fsuk/6.jpg" alt="Williams F1 cars lined up in the heritage collection" loading="lazy"><figcaption>Decades of Williams</figcaption></figure>
+<figure class="slide" aria-hidden="true"><img src="images/fsuk/7.jpg" alt="Final round results: P9 in the Engineering Challenge and P9 in Finals B" loading="lazy"><figcaption>Final round: P9 &amp; P9</figcaption></figure>
+      <button type="button" class="nav-b prev" aria-label="Previous photo">&#8249;</button>
+      <button type="button" class="nav-b next" aria-label="Next photo">&#8250;</button>
+    </div>
+    <div class="dots" id="showDots"><button type="button" aria-label="Show photo 1" aria-current="true"></button><button type="button" aria-label="Show photo 2"></button><button type="button" aria-label="Show photo 3"></button><button type="button" aria-label="Show photo 4"></button><button type="button" aria-label="Show photo 5"></button><button type="button" aria-label="Show photo 6"></button><button type="button" aria-label="Show photo 7"></button></div>
+    <div class="wish"><b>Next season, this could be you.</b><p>We want to see you in the team soon. Good luck with the tasks &mdash; we can&rsquo;t wait to read your report.</p></div>
+  </div>
+<script>
+(function(){var s=document.getElementById('show'),f=s.querySelectorAll('.slide'),d=document.querySelectorAll('#showDots button'),i=0,t;
+function go(n){f[i].classList.remove('on');f[i].setAttribute('aria-hidden','true');d[i].removeAttribute('aria-current');i=(n+f.length)%f.length;f[i].classList.add('on');f[i].setAttribute('aria-hidden','false');d[i].setAttribute('aria-current','true');}
+function auto(){clearInterval(t);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)t=setInterval(function(){go(i+1)},4500);}
+s.querySelector('.prev').onclick=function(){go(i-1);auto()};s.querySelector('.next').onclick=function(){go(i+1);auto()};
+d.forEach(function(b,k){b.onclick=function(){go(k);auto()}});
+s.addEventListener('mouseenter',function(){clearInterval(t)});s.addEventListener('mouseleave',auto);auto();})();
+</script>
 </section>
 
 <section class="brief" id="brief">
